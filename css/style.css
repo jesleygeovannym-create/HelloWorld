@@ -1,0 +1,325 @@
+:root {
+  /* Paleta de colores del proyecto */
+  --color-primario: #197bbd;   /* Azul principal */
+  --color-secundario: #125e8a; /* Azul oscuro */
+  --color-acento: #8a716a;     /* Marrón para botones y llamadas */
+  --color-fondo: #c2b8b2;      /* Fondo suave */
+  --color-texto: #204b57;      /* Texto principal */
+  --color-blanco: #ffffff;     /* Texto claro / blanco */
+  --color-borde: rgba(32, 75, 87, 0.15); /* Borde suave */
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, var(--color-fondo) 0%, #f2edea 100%);
+  color: var(--color-texto);
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El main queda separado del footer fijo */
+main.container {
+  flex: 1 0 auto;
+  width: 70%;
+  min-width: 320px;
+  max-width: 960px;
+  margin: calc(2rem + 80px) auto 0;
+  padding: 1.5rem;
+  background: var(--color-blanco);
+  box-shadow: 0 0 20px rgba(32, 75, 87, 0.08);
+  border-radius: 12px;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--color-primario);
+  color: var(--color-blanco);
+  padding: 1rem 1.5rem;
+  flex-shrink: 0;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 2px 12px rgba(18, 94, 138, 0.12);
+}
+
+.site-header .header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.site-header .logo {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.site-header nav a {
+  color: var(--color-blanco);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.site-header nav a:hover {
+  text-decoration: underline;
+}
+
+.grid-productos, .grid-categorias {
+  display: grid;
+  gap: 1rem;
+}
+
+.tarjeta-producto, .tarjeta-categoria {
+  border: 1px solid var(--color-borde);
+  padding: 1rem;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.tarjeta-producto .imagen-producto {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.tarjeta-producto h3, .tarjeta-categoria h3 {
+  margin-top: 0;
+}
+
+.campo {
+  margin-bottom: 1rem;
+}
+
+.campo label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+  width: 92%;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(32, 75, 87, 0.2);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.btn-primario,
+.btn-secundario,
+.btn-editar,
+.btn-eliminar {
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-blanco);
+  margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.tabla-carrito {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+  border: 1px solid var(--color-borde);
+  padding: 0.85rem 0.75rem;
+  text-align: left;
+}
+
+.tabla-carrito thead {
+  background: rgba(25, 123, 189, 0.08);
+}
+
+.producto-resumen {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.producto-resumen img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carrito-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.carrito-vacio {
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed var(--color-borde);
+  border-radius: 12px;
+  background: #fcfcfc;
+}
+
+.carrito-acciones {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.accion-cantidad {
+  display: inline-block;
+  padding: 0.4rem 0.65rem;
+  margin: 0 0.25rem;
+  border-radius: 6px;
+  background: rgba(25, 123, 189, 0.15);
+  color: var(--color-texto);
+  text-decoration: none;
+}
+
+.accion-cantidad:hover {
+  background: rgba(25, 123, 189, 0.25);
+}
+
+.btn-primario,
+.btn-secundario,
+.btn-editar,
+.btn-eliminar {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--color-blanco);
+  margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primario,
+.btn-editar {
+  background: var(--color-primario);
+}
+
+.btn-secundario {
+  background: var(--color-secundario);
+}
+
+.btn-eliminar {
+  background: var(--color-acento);
+}
+
+.btn-primario:hover,
+.btn-editar:hover,
+.btn-secundario:hover,
+.btn-eliminar:hover {
+  opacity: 0.95;
+}
+
+.mensaje-exito,
+.mensaje-error {
+  padding: 0.9rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.mensaje-exito {
+  color: #1f3d2f;
+  background: #d8efdb;
+}
+
+.mensaje-error {
+  color: #5f212a;
+  background: #f4d5d8;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-secundario);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 -4px 12px rgba(18, 94, 138, 0.15);
+}
+
+/* Ajuste para que el contenido no se esconda detrás del footer */
+body::after {
+  content: "";
+  display: block;
+  height: 4.5rem; /* altura aproximada del footer */
+}
+
+@media (max-width: 768px) {
+  .site-header .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-header nav a {
+    margin-right: 0;
+  }
+}
+
+/*menu categoria*/
+.dropdown{
+  color: var(--color-blanco);
+  text-decoration: none;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+/*ocultar el submenu*/
+.dropdown-content{
+  display: none;
+  position: absolute;
+  background-color: var(--color-blanco);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  border: 8px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content a{
+  color: var(--color-texto)!important;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin-right: 0 !important;
+  transition: background 0.2s;
+
+}
+
+.dropdown-content a:hover{
+  background-color: rgba(25, 123, 189, 0.1);
+  text-decoration: none;
+}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+.dropbtn::after{
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
